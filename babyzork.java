@@ -3,14 +3,14 @@ public class babyzork {
 	public static void main (String[] args) {
 		System.out.println("babyZork v0.1");
 		Scanner inputDevice = new Scanner(System.in);
-		String[] text = new String[5]; 
+		String[] text = new String[5];
 		text[0]= "";
 		while (!(text[0].equals("quit"))) {
 			text = (takeInput(inputDevice)).split(" +",5);
 			if (text.length == 0) {break;}
 			System.out.println(text[0]);
 		}
-		
+
 	}
 	public static String takeInput(Scanner inputDevice) {
 		System.out.print(":");
@@ -19,7 +19,9 @@ public class babyzork {
 	}
 	public static void intepretCommands(String[] args) {
 		String verb = args[0];
-		String target = args[1];		
-	
+		String target[] = new String[args.length - 1];
+		for (int i = 1; i < args.length; i++) {
+			targets[i-1] = args[i];		
+		}
 	}
-}	
+}
