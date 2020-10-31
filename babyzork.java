@@ -21,13 +21,21 @@ public class babyzork {
 			interpretCommands(text);
 		}
 		//write to save data
-
+		saveData();
 	}
 
 	public static String takeInput(Scanner inputDevice) {
 		System.out.print(":");
 		String line = inputDevice.nextLine();
 		return line;
+	}
+
+	public static void saveData() {
+		System.out.println("Saving...");
+	}
+	public static void showLocation(int x, int y) {
+		//System.out.println(locationDesc[xpos][ypos]);
+		System.out.println("X Pos: " + xpos + "\tY Pos: " + ypos);
 	}
 
 	public static void interpretCommands(String[] args) {
@@ -40,25 +48,33 @@ public class babyzork {
 			case "n":
 			case "north":
 				ypos++;
+				showLocation(xpos,ypos);
 				break;
 			case "e":
 			case "east":
 				xpos++;
+				showLocation(xpos,ypos);
 				break;
 			case "s":
 			case "south":
 				ypos--;
+				showLocation(xpos,ypos);
 				break;
 			case "w":
 			case "west":
 				xpos--;
+				showLocation(xpos,ypos);
 				break;
 			case "look":
-			case "where":
-			case "location":
+				showLocation(xpos,ypos);
+				break;
 			case "pos":
-				System.out.println("X Pos: " + xpos + " Y Pos: " + ypos);
-				//System.out.println(locationDesc[xpos][ypos]);
+				System.out.println("X Pos: " + xpos + "\tY Pos: " + ypos);
+				break;
+			case "help":
+				if (targets.length == 0) {
+					System.out.println("Possible Commands: \n\t" + "placeholder");
+					System.out.println("You can also use help 'command' for help with a specific command.");
 				break;
 			case "quit":
 				break;
